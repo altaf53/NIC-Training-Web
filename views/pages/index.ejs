@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+	<header>
+		<%- include('../partials/header') -%>
+	</header>
+	<% if(verified == "1"){ %>
+		<script>alert("account verrfied !!! please login to continue")</script>
+	<% } %>
+	<div class=" container ">
+
+		<div class="row form">
+			<div class="col-sm-4 form-div login">
+				<form action="/login" method="post">
+					<h3 class="text-center">Login</h3>
+					<!-- error -->
+					<div class="form-group">
+						<label for="username">User Name</label>
+						<input type="text" name="username" value="" class="form-control form-control-lg">
+					</div>
+
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" name="password" class="form-control form-control-lg">
+					</div>
+					<input type="hidden" name="_csrf" value="<%=csrfToken%>">
+
+					<div class="form-group">
+
+						<button type="submit" name="login-btn" class="btn btn-primary btn-block btn-lg">Login</button>
+					</div>
+					<p class="text-center">Not yet register? <a href="/register">Sign Up</a></p>
+				</form>
+			</div>
+			<!-- <div class="login col-xl-4 col-lg-5 col-md-6 col-sm-8 mx-auto text-center p-4" style="border: 2px;">
+				<h1>Login</h1>
+			<form name="RegForm" class="justify-content-center">
+				<div class="text-box">
+					<i class="fa fa-user" aria-hidden="true"></i>
+					<input for="username" type="email" placeholder="Email-Id" name="username" id="username" value="" required>
+				</div>
+				<div class="text-box">
+					<i class="fa fa-lock" aria-hidden="true"></i>
+					<input for="passoword" type="password" placeholder="Password" name="password" id="password" value="" required>
+				</div>
+				
+				<button type="submit" name="Submit" value="Submit" class="clk" id="login">Submit</button>
+				
+				<a class="forgot form-group row d-flex justify-content-center" href="\forgot_password">forgot password?</a>
+				</form>
+			</div> -->
+		</div>
+	</div>
+
+</body>
+
+</html>

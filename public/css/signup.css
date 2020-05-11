@@ -1,0 +1,43 @@
+@import url('font.css');
+.form-div{
+	margin:50px auto 50px;
+	padding:25px 15px 10px 15px;
+	border:1px solid #80ced7;
+	border-radius:5px;
+	font-size:1.1em;
+	font-family: 'Lora', serif;
+}
+
+.form-control:focus{
+	box-shadow: none;
+}
+
+form p{
+	font-size: .89em;
+}
+
+.form-div.login{
+	margin-top: 100px; 
+}
+
+.logout{
+	color: red;
+}
+
+label{
+	font-weight: bold;
+}
+
+@media screen and (max-width: 768px){
+	.form{
+		padding: 5px;
+	}
+	.form-div{
+		padding:30px 20px 15px 20px;
+		
+	}
+}
+
+
+
+

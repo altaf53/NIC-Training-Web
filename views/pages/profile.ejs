@@ -1,0 +1,225 @@
+<html>
+
+<head>
+	<title>Profile</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+	<header>
+		<%- include('../partials/header') -%>
+	</header>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-md-8 form-div">
+				<form action="/profile" method="post">
+					<h3 class="text-center">Profile</h3>
+					<ol>
+						<li>
+							<div class="form-group-lg">
+								<label for="sfname">Student Full Name</label>
+								<input type="text" name="sfname" class="form-control form-control-lg">
+							</div>
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label for="insname">Institute Name</label><br>
+								<input type="text" name="insname" id="insname" class="form-control form-control-lg">
+							</div>
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label for="insaddress">Institute Address</label><br>
+								<textarea rows="4" cols="50" name="insaddress" id="insaddress"
+									class="form-control form-control-lg"></textarea>
+							</div>
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label for="phone">Institute Telephone No.</label>
+								<input type="tel" name="phone" class="form-control form-control-lg">
+							</div>
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label for="inssaddress">Permanent Address of student</label><br>
+								<textarea rows="4" cols="50" name="inssaddress" id="inssaddress"
+									class="form-control form-control-lg"></textarea>
+							</div>
+						</li>
+
+						<li>
+							<div class="form-group-lg">
+								<label for="telphone">Telephone No.</label>
+								<input type="tel" name="telphone" class="form-control form-control-lg">
+							</div>
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label>Whether you belong to</label>
+								<div class="row">
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio1" value="ST" id="st">ST
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio1" value="SC" id="sc">SC
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio1" value="OBC" id="obc">OBC
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio1" value="GENERAL" id="open">GENERAL
+									</label>
+								</div>
+							</div>
+
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label>Degree being done </label>
+								<div class="row">
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="B.Tech.(CS)" id="B.Tech.(CS)">B.Tech.(CS)
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="B.Tech.(IT)" id="B.Tech.(IT)">B.Tech.(IT)
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="B.Tech(E&C)" id="B.Tech(E&C)">B.Tech(E&C)
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="B.E.(CS)" id="B.E.(CS)">B.E.(CS)
+									</label>
+								</div>
+								<div class="row">
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="M.Tech.(CS)">M.Tech.(CS)
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="M.E.(CS)">M.E.(CS)
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="M.Sc.(CS)">M.Sc.(CS)
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="M.C.A.">M.C.A.
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio2" value="Others">Others
+									</label>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label>Semester-wise %</label>
+								<div style="color: red">Note: In case your marks are in CGPA, please write in %</div>
+								<table class="table table-bordered col-xl-4 col-lg-6 col-sm-8">
+									<tr>
+
+										<th>Ist</th>
+										<th>IInd</th>
+										<th>IIIrd</th>
+										<th>IVth</th>
+										<th>Vth</th>
+										<th>VIth</th>
+										<th>VIIth</th>
+										<th>VIIIth</th>
+										<th>Total</th>
+									</tr>
+									<tr>
+										<td><input type="number" name="Ist" min="1" max="5"></td>
+										<td><input type="number" name="IInd" min="1" max="5"></td>
+										<td><input type="number" name="IIIrd" min="1" max="5"></td>
+										<td><input type="number" name="IVth" min="1" max="5"></td>
+										<td><input type="number" name="Vth" min="1" max="5"></td>
+										<td><input type="number" name="VIth" min="1" max="5"></td>
+										<td><input type="number" name="VIIth" min="1" max="5"></td>
+										<td><input type="number" name="VIIIth" min="1" max="5"></td>
+										<td><input type="number" name="total" min="1" max="5"></td>
+									</tr>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label>Course Status </label>
+								<div class="row">
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio3" value="ft">Full Time
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio3" value="pt">Part Time
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio3" value="cp">Correspondence
+									</label>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="form-group-lg">
+								<label>Project Training Semester </label>
+								<div class="row">
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio4" value="January">January
+									</label>
+									<label class="radio-inline col text-center">
+										<input type="radio" name="optradio4" value="July">July
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group-lg">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>
+						<li>Project duration (in months)</li>
+						</th>
+						<th>
+							<li>Project Training Starting Date </li>
+						</th>
+						</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<select name="projectDuration">
+										<option value="1">01</option>
+										<option value="2">02</option>
+										<option value="3">03</option>
+										<option value="4">04</option>
+										<option value="5">05</option>
+										<option value="6">06</option>
+										<option value="7">07</option>
+										<option value="8">08</option>
+										<option value="9">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+									</select>
+								</td>
+								<td>
+									<input type="date" name="projectStartDate">
+								</td>
+							</tr>
+						</tbody>
+						</table>
+			</div>
+
+			</ol>
+			<!-- <input type="hidden" name="_csrf" value="<%=csrfToken%>"> -->
+			<div class="form-group-lg">
+				<button type="submit" name="signup_btn" class="btn btn-primary btn-block btn-lg">Submit</button>
+			</div>
+			</form>
+		</div>
+	</div>
+	</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<header>
+		<%- include('../partials/header') -%>
+	</header>
+	<title>Register</title>
+	<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/signup.css">
+	<script src="bootstrap/jquery-3.4.1.min.js"></script>
+	<script src="bootstrap/sweetalert.min.js"></script>
+	<style type="text/css">
+		.showmsg {
+
+			display: block;
+			color: red;
+		}
+
+		.hidemsg {
+			display: none;
+		}
+
+		@media screen and (max-width: 768px) {
+			.form {
+				padding: 5px;
+			}
+
+			.form-div {
+				padding: 30px 20px 15px 20px;
+
+			}
+		}
+	</style>
+
+	<!-- <script>
+		function validateData() {
+			var flag = true;
+
+			let user_id = $("#user_id").val();
+			let email_id = $("#email_id").val();
+			let mobile_no = $("#mobile_no").val();
+			let password = $("#user_password").val();
+			let password_confirm = $("#confirm_user_password").val();
+
+			var check = [];
+
+			if (user_id == "") {
+				check.push('User id Required')
+			}
+
+			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email_id) == false) {
+				check.push(' Email Invalid/Required')
+			}
+
+			if (/^(\+\d{1,3}[- ]?)?\d{10}$/.test(mobile_no) == false) {
+				check.push(' Mobile Number Invalid/Required')
+			}
+
+			if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/.test(password) == false) {
+				check.push('Your password must contain atleast one uppercase, one lowercase, one numeric, one special character and should have minimum 8 characters ')
+			}
+
+			if (password !== password_confirm) {
+				check.push(' Password do not match ')
+
+			}
+
+			if (check.length > 0) {
+				swal({
+					title: "Invalid Input",
+					text: check.join('\n'),
+					icon: "warning"
+
+				})
+
+				console.log(check)
+				flag = false;
+			}
+			return flag;
+
+		}
+	</script> -->
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="row form">
+			<div class="col-md-6 offset-md-6 form-div">
+				<form action="/register" method="POST">
+					<h3 class="text-center">Register</h3>
+					<!-- error msg -->
+
+					<div class="form-group">
+						<label for="user_id">User Name</label>
+						<input type="text" id="user_id" name="username" value="" class="form-control form-control-lg">
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label><br>
+						<div id="msg" class="hidemsg">Please enter your activated Email ID</div>
+						<input type="email" id="email_id" value="" name="email" class="form-control form-control-lg">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" id="user_password" name="password" class="form-control form-control-lg">
+					</div>
+					<div class="form-group">
+						<label for="passwordConf">Confirm Password</label>
+						<input type="password" name="confirm_user_password" id="confirm_user_password"
+							class="form-control form-control-lg">
+					</div>
+					<div class="form-group">
+						<label for="phone">Phone Number</label>
+						<input type="tel" id="mobile_no" name="contact" class="form-control form-control-lg">
+					</div>
+					<input type="hidden" name="_csrf" value="<%=csrfToken%>">
+
+					<div class="form-group">
+						<!-- <button type="submit" id="submitform" value="send" name="Submit"
+							class="btn btn-primary btn-block btn-lg">Sign Up</button> -->
+						<input type="submit" value="Sign Up" class="btn btn-primary btn-block btn-lg">
+					</div>
+					<p class="text-center">Already Register? <a href="/">Sign In</a></p>
+				</form>
+
+				<!-- <script>
+					$(document).ready(function () {
+						$("#submitform").on('click', function (e) {
+							e.preventDefault();
+							let dataCorrectness = validateData();
+							console.log(dataCorrectness);
+							if (dataCorrectness) {
+								let i = 0;
+								if (i == 0) {
+									let user_id = $("#user_id").val();
+									let email_id = $("#email_id").val();
+									let mobile_no = $("#mobile_no").val();
+									let user_password = $("#user_password").val();
+
+
+									var url = "/register"
+
+									if (user_id !== "" || email_id !== "" || user_password !== "" || mobile_no !== "") {
+										$.post(url);
+									};
+								}
+							}
+						});
+					});
+				</script> -->
+<!-- Backend validation -->
+<script>
+	$(document).ready(function(){
+		$("#submitform").on('click' ,function(e){
+			e.preventDefault();
+			if(validateData() == true){
+				let i =0;
+				if(i==0){
+				let user_id = $("#user_id").val();
+				let email_id = $("#email_id").val();
+				let mobile_no = $("#mobile_no").val();
+				let user_password = $("#user_password").val();
+			
+			var url = "/submit_user_form"
+			if(user_id !=="" || email_id !=="" || user_password !=="" || mobile_no !==""){
+				$.post(url, {user_id:user_id, email_id:email_id,user_password:user_password,mobile_no:mobile_no}).done(function(data){
+					if(data == "user id already exists"){
+						swal({
+							title: "User ID already in use",
+							text:check.join( '\n'),
+							icon: "warning"
+							
+						})
+					}
+					 if(data == "email id already exists"){
+						swal({
+							title: "Email already registered ",
+							text: "Please LOGIN if already registered",
+							icon: "warning"
+							
+						})
+					}
+					 if(data == "username already exists"){
+						swal({
+							title: "User Name already registered",
+							text: "Please LOGIN if already registered",
+							icon: "warning"
+							
+						})
+					}
+					if(data == "mobile no id already exists"){
+						swal({
+							title: "Phone Number already registered",
+							text: "Please LOGIN if already registered",
+							icon: "warning"
+							
+						})
+					}
+					if(data =="Account Created"){
+					swal({
+						title: "Account created",
+						text: "Account created Successfully",
+						icon: "success"
+						
+					  })
+				}
+				});
+			};
+		}
+		}
+		});
+	});
+</script>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
