@@ -1,4 +1,4 @@
-//const { MONGO_DB_DEV_URI } = require('./config');
+const { MONGO_DB_URI } = require('./config');
 const mongoose = require('mongoose');
 
 const initDatabase = () => {
@@ -8,11 +8,7 @@ const initDatabase = () => {
     useUnifiedTopology: true
   }
 
-<<<<<<< HEAD
   mongoose.connect(MONGO_DB_URI, options);
-=======
-  mongoose.connect(process.env.MONGO_DB_DEV_URI, options);
->>>>>>> d4c927695da40393c6c2a67ef84e3c03b95aee71
 
   let connection = mongoose.connection;
 

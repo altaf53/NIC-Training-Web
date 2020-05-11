@@ -4,7 +4,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const User = require('../../models/User');
-const { MONGO_DB_DEV_URI, SECRET_SESSION } = require('./config');
+const { MONGO_DB_URI, SECRET_SESSION } = require('./config');
 const flash = require('connect-flash');
 const passport = require('passport');
 const fileUpload = require('express-fileupload');
@@ -22,7 +22,7 @@ const initMiddleware = (app) => {
   console.log(path.join(__dirname, '../../public'));
 
   const store = new MongoDBStore({
-    store: MONGO_DB_DEV_URI
+    store: MONGO_DB_URI
   });
 
 
