@@ -2,4 +2,5 @@
 # Ignore node_modules
 
 #Ignore ENV fil
+.env
 
