@@ -8,7 +8,13 @@ const initDatabase = () => {
     useUnifiedTopology: true
   }
 
+<<<<<<< HEAD
   mongoose.connect(MONGO_DB_URI, options);
+=======
+
+  mongoose.connect(process.env.MONGO_DB_DEV_URI, options);
+
+>>>>>>> cd47dcbf056f78847c225122faefc7c7804a21de
 
   let connection = mongoose.connection;
 
